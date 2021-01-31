@@ -11,10 +11,10 @@ app = Flask(__name__)
 api = Api(app)
 
 db = pymysql.connect(
-        user = 'root',
-        passwd = 'Iamjenius1',
-        host = '127.0.0.1',
-        db = 'elice_api',
+        user = 'knghyunwoo@elice-api',
+        passwd = 'iAMJENIUS1',
+        host = 'elice-api.mysql.database.azure.com',
+        db = 'elice_db',
         charset = 'utf8'
     )
 cursor = db.cursor()
