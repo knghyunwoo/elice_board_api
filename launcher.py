@@ -14,7 +14,6 @@ db = pymysql.connect(
         user = 'root',
         passwd = 'Iamjenius1',
         host = '127.0.0.1',
-        port = 3306,
         db = 'elice_api',
         charset = 'utf8'
     )
@@ -147,6 +146,13 @@ def login():
 @app.route('/auth/logout')
 def logout():
     return None
+
+
+### 생 기본
+@app.route('/')
+def abc():
+    return "None"
+
 
 # API Resource 라우팅을 등록!
 api.add_resource(Board, '/board')
