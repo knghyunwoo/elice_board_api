@@ -19,9 +19,10 @@ python -m venv python-env
 source python-env/bin/activate
 # 가상환경이랑 같은 requirements 설치
 pip install -r requirements.txt
-# 서버를 그냥 실행
+# 1. 서버를 그냥 실행
 python launcher.py
-# 서버를 gunicorn으로 뒤에서 실행
+#위에 명령어 실행후 localhost:5000/ 로 접속
+# 2. 서버를 gunicorn으로 뒤에서 실행
 gunicorn launcher:app -Db 0.0.0.0:5000
 # gunicorn이 몇번째 pid로 실행중인지 확인
 ps -ef | grep gunicorn
