@@ -1,5 +1,15 @@
 # My Flask Project
 
+## 사용한 것들
+언어: Python
+API 서버: Azure 가상머신
+API 서버구현: Flask, Gunicorn
+메인 DB: Azure Database for MySQL
+
+공용 IP주소: 52.231.89.39
+포트번호: 5000번
+
+
 ## 서버 실행 방법
 
 ```bash
@@ -19,7 +29,7 @@ ps -ef | grep gunicorn
 kill -9 gunicorn_pid
 ```
 
-## Installation
+## 설치
 
 ```bash
 git clone https://kdt-gitlab.elice.io/knghyunwoo/my-flask-project.git
@@ -28,11 +38,12 @@ git clone https://kdt-gitlab.elice.io/knghyunwoo/my-flask-project.git
 
 
 ## 과제 설명 (구현한 API)
+상세한 설명은 코드에 주석으로 달아두었습니다.
 
 ### 완전 기본루트
 
-```
-@app.route('/')
+```python
+@app.route('/') #ex: 52.231.89.39:5000/
 ```
 를 서버가 잘연결되었는지를 확인하기 위해 만들었습니다.<br>
 
@@ -46,15 +57,15 @@ Login API : *email*, *password* 를 입력받아 특정 유저로 로그인합�
 Logout API : 현재 로그인 된 유저를 로그아웃합니다.<br>
 
 ### SignUp
-```
+```python
 @app.route('/auth/register', methods=['POST'])
 ```
 ### LOGIN
-```
+```python
 @app.route('/auth/login', methods=['POST'])
 ```
 ### LOGOUT
-```
+```python
 @app.route('/auth/logout')
 ```
 <br>
@@ -69,19 +80,19 @@ Update API : 기존 게시판의 name 을 변경합니다.<br>
 Delete API : 특정 게시판을 제거합니다. <br>
 
 ### READ
-```
+```python
 def get(self)
 ```
 ### CREATE
-```
+```python
 def post(self)
 ```
 ### UPDATE
-```
+```python
 def put(self)
 ```
 ### DELETE
-```
+```python
 def delete(self)
 ```
 
@@ -95,19 +106,19 @@ Update API : 게시판 글의 title, content를 변경합니다.<br>
 Delete API : 특정 게시판 글을 제거합니다.<br>
 
 ### READ
-```
+```python
 def get(self, board_id=None, board_article_id=None)
 ```
 ### CREATE
-```
+```python
 def post(self, board_id)
 ```
 ### UPDATE
-```
+```python
 def put(self, board_id=None, board_article_id=None)
 ```
 ### DELETE
-```
+```python
 def delete(self, board_id=None, board_article_id=None)
 ```
 
@@ -117,6 +128,6 @@ Dashboard APIs
 RecentBoardArticle API : 모든 게시판에 대해 각각의 게시판의 가장 최근 n 개의 게시판 글의 title 을 가져옵니다. <br>
 (k 개의 게시판이 있다면 최대 k * n 개의 게시판 글의 title 을 반환합니다.)
 
-```
+```python
 @app.route('/recentarticle', methods=['POST'])
 ```
