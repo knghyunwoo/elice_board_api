@@ -135,6 +135,7 @@ class Board(Resource):
         return jsonify(status = "success", result = result)
         
     #CREATE
+    #WriterID는 위에서 Signup 할때 만든 아이디로 해야됩니다!
     def post(self):
         args = parser.parse_args()
         sql = "INSERT INTO `board` (name, writerid) VALUES (%s, %s)"
@@ -181,6 +182,8 @@ parser.add_argument('board_id')
 
 class BoardArticle(Resource):
     #READ
+    #접속시 /board/<board_id>로 접속할수 있습니다!
+    #board_id는 Board에서 POST 할때 만든 아이디로 해야됩니다!
     def get(self, board_id=None, board_article_id=None):
         if board_article_id:
             sql = "SELECT * FROM `boardArticle` WHERE `id`=%s"
