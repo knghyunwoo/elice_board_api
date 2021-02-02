@@ -22,13 +22,19 @@ pip install -r requirements.txt
 # 1. 서버를 그냥 실행
 python launcher.py
 #위에 명령어 실행후 localhost:5000/ 로 접속
-# 2. 서버를 gunicorn으로 뒤에서 실행
+# 2-1. ssh 로 들어간다
+ssh knghyunwoo@52.231.89.39
+# 2-2. 서버를 gunicorn으로 뒤에서 실행
 gunicorn launcher:app -Db 0.0.0.0:5000
 # gunicorn이 몇번째 pid로 실행중인지 확인
 ps -ef | grep gunicorn
 # 서버를 다시 실행시 gunicorn이 실행되고 있는 pid를 죽임
 kill -9 gunicorn_pid
 ```
+Microsoft-Azure 가상머신에 띄워진 API서버를 통해 Test 가능합니다.(+postman으로)<br>
+http://52.231.89.39:5000/ 
+
+
 
 ## 설치
 
